@@ -18,6 +18,8 @@ func main() {
 	r := gin.Default()
 
 	r.POST("/signup", controller.SignUp)
+	r.POST("/signin", controller.SignIn)
+	r.GET("/validate", controller.Validate)
 
 	r.Run()
 	fmt.Println("Hallo dunia")
