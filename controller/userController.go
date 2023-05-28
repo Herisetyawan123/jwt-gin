@@ -99,3 +99,11 @@ func Validate(c *gin.Context) {
 		"message": "I'am login",
 	})
 }
+
+func SignOut(c *gin.Context) {
+
+	c.SetCookie("Authorization", "", 0, "", "", false, true)
+	c.JSON(http.StatusAccepted, gin.H{
+		"message": "berhasil log out",
+	})
+}
