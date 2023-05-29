@@ -28,6 +28,7 @@ func SignUp(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "Failed to hash password",
 		})
+		return
 	}
 
 	user := models.User{Email: request.SignUpBody.Email, Password: string(hash), Name: request.SignUpBody.Name}
@@ -37,6 +38,7 @@ func SignUp(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "Failed to create user",
 		})
+		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{
@@ -82,6 +84,7 @@ func SignIn(c *gin.Context) {
 		c.JSON(http.StatusBadGateway, gin.H{
 			"error": "Terjadi kesalahan ketika menerjemahkan token",
 		})
+		return
 	}
 
 	// cookie
