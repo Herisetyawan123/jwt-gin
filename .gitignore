@@ -1,3 +1,4 @@
 jwt-gin.exe
 jwt-gin.exe~
 /http
+.env
